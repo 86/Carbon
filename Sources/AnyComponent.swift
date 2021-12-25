@@ -130,6 +130,11 @@ public struct AnyComponent: Component {
         box.contentDidEndDisplay(content)
     }
 
+    @inlinable
+    public func contentPrepareForReuse(_ content: Any) {
+        box.contentPrepareForReuse(content)
+    }
+
     /// Returns a base instance casted as given type if possible.
     ///
     /// - Parameter: An expected type of the base instance to casted.
@@ -162,6 +167,7 @@ internal protocol AnyComponentBox {
 
     func contentWillDisplay(_ content: Any)
     func contentDidEndDisplay(_ content: Any)
+    func contentPrepareForReuse(_ content: Any)
 }
 
 @usableFromInline
@@ -241,5 +247,12 @@ internal struct ComponentBox<Base: Component>: AnyComponentBox {
         guard let content = content as? Base.Content else { return }
 
         baseComponent.contentDidEndDisplay(content)
+    }
+
+    @inlinable
+    func contentPrepareForReuse(_ content: Any) {
+        guard let content = content as? Base.Content else { return }
+
+        baseComponent.contentPrepareForReuse(content)
     }
 }

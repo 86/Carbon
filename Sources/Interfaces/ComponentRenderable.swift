@@ -37,6 +37,12 @@ internal extension ComponentRenderable {
 
         renderedComponent?.contentDidEndDisplay(content)
     }
+    
+    func contentPrepareForReuse() {
+        guard let content = renderedContent else { return }
+
+        renderedComponent?.contentPrepareForReuse(content)
+    }
 
     /// Render given componet to container.
     ///

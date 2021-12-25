@@ -14,3 +14,4 @@ open class UICollectionComponentReusableView: UICollectionReusableView, Componen
         backgroundColor = .clear
     }
 }
+

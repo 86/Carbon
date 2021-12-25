@@ -15,4 +15,8 @@ open class UITableViewComponentCell: UITableViewCell, ComponentRenderable {
         contentView.backgroundColor = .clear
         selectionStyle = .none
     }
+    
+    public override func prepareForReuse() {
+       contentPrepareForReuse()
+    }
 }

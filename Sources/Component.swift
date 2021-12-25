@@ -121,6 +121,9 @@ public protocol Component {
     /// - Parameter:
     ///   - content: An instance of content going out from display area.
     func contentDidEndDisplay(_ content: Content)
+    
+    
+    func contentPrepareForReuse(_ content: Content)
 }
 
 public extension Component {
@@ -187,6 +190,9 @@ public extension Component {
     ///   - content: An instance of content going out from display area.
     @inlinable
     func contentDidEndDisplay(_ content: Content) {}
+    
+    @inlinable
+    func contentPrepareForReuse(_ content: Content) {}
 }
 
 public extension Component where Content: UIView {

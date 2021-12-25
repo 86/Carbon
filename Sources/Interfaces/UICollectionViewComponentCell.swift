@@ -14,4 +14,8 @@ open class UICollectionViewComponentCell: UICollectionViewCell, ComponentRendera
         backgroundColor = .clear
         contentView.backgroundColor = .clear
     }
+    
+    public override func prepareForReuse() {
+       contentPrepareForReuse()
+    }
 }

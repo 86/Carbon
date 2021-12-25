@@ -126,4 +126,9 @@ public extension ComponentWrapping {
     func contentDidEndDisplay(_ content: Wrapped.Content) {
         wrapped.contentDidEndDisplay(content)
     }
+    
+    @inlinable
+    func contentPrepareForReuse(_ content: Wrapped.Content) {
+        wrapped.contentPrepareForReuse(content)
+    }
 }
